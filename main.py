@@ -11,7 +11,7 @@ import math
 # print(age)
 # age = "Hello"
 # print(age)
-# print(type(age))  # значение типа данных
+# print(type(age))  # определение типа данных
 # int - 20, float - 20.5, str - "Hello", bool - True (False)
 
 # a = 4
@@ -1231,4 +1231,4 @@ import math
 #         city_name, city_population = city
 #         print(f"\tГород: {city_name}, население = {city_population}")
 
-
+print("Вносим изменения")

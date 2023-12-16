@@ -1361,3 +1361,5 @@ import math
 # b = set(a)
 # a = list(b)
 # print(a)
+
+# lesson 12

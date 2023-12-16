@@ -1231,4 +1231,133 @@ import math
 #         city_name, city_population = city
 #         print(f"\tГород: {city_name}, население = {city_population}")
 
-print("Вносим изменения")
+# print("Вносим изменения")
+
+
+# lesson 11
+
+# множество (set) - неупорядоченный коллекционный тип данных, хранящий уникальные элементы
+
+# s = {"banana", "apple", "orange"}
+# print(s)
+
+# a = set()  # пустое множество
+
+# c = ["red", "blue", "green", "red"]
+# a = set(c)
+# print(a, type(a))
+
+# s = {x for x in range(10)}
+# print(s)
+
+# s = {x * x for x in range(10)}
+# print(s)
+
+# mas = [1, 2, 3, 2, 3, 4, 4, 5]
+# s = {x for x in mas if x % 2 == 0}
+# print(s)
+
+# def to_set(elem):
+#     st = set(elem)
+#     return st, len(st)
+#
+#
+# print(to_set("я обычная строка"))
+# print(to_set([4, 5, 4, 2, 9, 11, 3, 4, 2]))
+
+# t = {"red", "green", "blue"}
+# print("green" in t)
+# print("green" not in t)
+# for i in t:
+#     print(i)
+
+# r = ['ab_1', 'ac_2', 'bc_1', 'bc_2']
+# a = [i for i in r if "a" in i]
+# a = {"A"+i[1:] if i[0] == "a" else "B"+i[1:] for i in r}
+# a = {"A"+i[1:] if i[0] == "a" else "B"+i[1:] for i in r if i[1] == "c"}
+# print(a)
+
+# a = {"tom", "bob", "alice"}
+# print(a)
+# a.add("ann")
+# print(a)
+# a.remove("tom")  # если нет удаляемого элемента, выбрасывает ошибку
+# print(a)
+# user = "bob"
+# if user in a:
+#     a.remove(user)
+# print(a)
+# a.discard("ann")  # если нет удаляемого элемента, не выбрасывает ошибку
+# print(a)
+# n = a.pop()  # удаляет первый элемент
+# print(n)
+# print(a)
+# a.clear()
+# print(a)
+
+# a = {0, 1, 2, 3}
+# b = {4, 3, 2, 1}
+# c = a.union(b)
+# c = a | b  # или
+# print(c)
+# a |= b
+# print(a)
+# d = a & b  # и
+# print(d)
+# a &= b
+# print(a)
+# e = a - b
+# print(e)
+# a -= b
+# print(a)
+# f = a ^ b  # симметричная разность {0, 4}
+# print(f)
+
+# s1 = {1, 2}
+# s2 = {3}
+# s3 = {4, 5}
+# s4 = {3, 2, 6}
+# s5 = {6}
+# s6 = {7, 8}
+# s7 = {9, 8}
+# # s = s1.union(s2, s3, s4, s5, s6, s7)
+# s = s1 | s2 | s3 | s4 | s5 | s6 | s7
+# print(f"Уникальные элементы: {s}")
+# c = len(s)
+# print(f"Уникальные элементы, количество: {c}")
+# print(f"min {min(s)}")
+# print(f"max {max(s)}")
+# print(f"sum {sum(s)}")
+
+# s1 = "Hello"
+# s2 = "How are you"
+# a = set(s1) & set(s2)
+# for i in a:
+#     print(i, end=" ")
+# print(*a)
+
+# drawing = {"марина", "женя", "света"}
+# music = {"костя", "женя", "илья"}
+# one_hobby = drawing ^ music
+# print(f"Only one hobby: {one_hobby}")
+# both_hobbies = drawing & music
+# print(f"Both hobbies: {both_hobbies}")
+# drawing -= both_hobbies
+# print(f"drawing: {drawing}")
+
+# a = {0, 1, 2, 3, 4}
+# b = {3, 2, 1}
+# print(a <= b)  # a подмножество b
+# print(b <= a)  # b подмножество a
+
+# s = frozenset([1, 2, 3, 4, 5])  # неизменяемый set
+# print(type(s))
+# print(s)
+# a = frozenset({"hello", "world"})
+# print(a)
+
+# a = [8, 9, 7, 4, 5, 8, 7, 9, 6, 4, 6, 5, 1, 2, 4, 5]
+# print(a)
+# b = set(a)
+# a = list(b)
+# print(a)

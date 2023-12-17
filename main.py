@@ -483,7 +483,7 @@ import math
 # arr1 = []
 # arr2 = list()
 
-# arr = list("hello")  # преобразование в строку
+# arr = list("hello")  # преобразование в список
 # print(arr)
 
 # print(range(6))
@@ -1363,3 +1363,153 @@ import math
 # print(a)
 
 # lesson 12
+
+# lst = [1, 2, 3]
+# d = {"one": 1, "two": 2, "three": 3, 4: "four"}  # словарь
+# print(lst[0])
+# print(d["one"])
+# lst[0] = 10
+# d["one"] = 10
+# print(d[4])
+
+# d = {}
+# print(d)
+# print(type(d))
+# d1 = dict()
+
+# d = dict({"one": 1, "two": 2, "three": 3, 4: "four"})
+# d = dict(one=1, two=2, three=3, four="four")
+
+# ключами в словаре могут быть только неизменяемые типы данных
+# d = {0: 1, "two": 2, (1, 2.3): "кортеж", True: [2, 3, 4, 6]}
+# print(d)
+
+# d = {0: 1, "two": 2, (1, 2.3): "кортеж", True: [2, 3, 4, 6]}
+# print(d[True][1])
+# print(d[(1, 2.3)])
+# print(d["two"])
+# print(d[0])
+
+# lst = [["one", 1], ["two", 2], ["three", 3]]
+# d = dict(lst)
+# print(d)
+
+# d = {a: a**2 for a in range(7)}
+# print(d)
+
+# d = {"one": 1, "two": 2, "four": 4}
+# if "one" in d:
+#     print("TRUE")
+# print("one1" in d)
+# key = "four"
+# if key in d:
+#     del d[key]
+# try:
+#     del d[key]
+# except KeyError:
+#     print("Элемента с ключом " + key + "нет в словаре")
+# for i in d:
+#     print(i, ":", d[i])
+
+# m = 1
+# d = {"x1": 3, "x2": 7, "x3": 5, "x4": -1}
+# for i in d:
+#     m *= d[i]
+# print(m)
+
+# d = dict()
+# d[1] = input("Введите что-нибудь")
+# d[2] = input("Введите что-нибудь")
+# d[3] = input("Введите что-нибудь")
+# d[4] = input("Введите что-нибудь")
+# d = {i: input("Введите что-нибудь") for i in range(1, 5)}
+# dislike = int(input("Какой элемент исключить: "))
+# del d[dislike]
+# print(d)
+
+# d = {"x1": 3, "x2": 7, "x3": 5, "x4": -1}
+# print(len(d))
+# print(max(d))
+# d = {3: "x1", 7: "x2", 5: "x3", -1: "x4"}
+# print(sum(d))
+
+# goods = {
+#     '1': ['Core-i34330', 9, 4500],
+#     '2': ['Core i5-4670K', 3, 8500],
+#     '3': ['AMD FX-6300', 6, 3700],
+#     '4': ['Pentium G3220', 8, 2100],
+#     '5': ['Core i5-3450', 5, 6400],
+# }
+# for i in goods:
+#     print(f"{i}) {goods[i][0]} - {goods[i][1]} шт. по {goods[i][2]}руб")
+#
+# while True:
+#     n = input("Введите номер товара: ")
+#     if n != "0":
+#         count = int(input("Введите количество товаров: "))
+#         try:
+#             goods[n][1] += count
+#         except KeyError:
+#             pass
+#     else:
+#         break
+#
+# for i in goods:
+#     print(f"{i}) {goods[i][0]} - {goods[i][1]} шт. по {goods[i][2]}руб")
+
+# методы работы со словарём
+# d = {"a": 1, "b": 2, "c": 3}
+# print(d.keys())  # список ключей
+# print(d.values())  # список значений
+# print(d.items())  # список ключей и значений в виде кортежа
+# for key in d:
+#     print(key, "->", d[key])
+# for key in d.keys():
+#     print(key)
+# for value in d.values():
+#     print(value)
+# for key, value in d.items():
+#     print(key, "->", value)
+#
+# print(list(d))
+# print(list(d.keys()))
+# print(list(d.values()))
+# print(list(d.items()))
+# print(tuple(d.items()))
+#
+# d2 = d
+# print(f"d: {d}, id = {id(d)}")
+# print(f"d2: {d2} id = {id(d2)}")
+# d2['a'] = 5
+# d['e'] = 7
+# print(f"d: {d}, id = {id(d)}")
+# print(f"d2: {d2} id = {id(d2)}")
+#
+# d2 = d.copy()  # копирует и создаёт новый словарь
+# print(f"d: {d}, id = {id(d)}")
+# print(f"d2: {d2} id = {id(d2)}")
+# d2['a'] = 5
+# d['e'] = 7
+# print(f"d: {d}, id = {id(d)}")
+# print(f"d2: {d2} id = {id(d2)}")
+#
+# d.clear()  # очищает словарь, оставляя пустой словарь
+#
+# print(d['b'])
+# print(d['e'])  # выдаст ошибку
+# val1 = d.get("b", "Такого ключа не существует")
+# val2 = d.get("e", "Такого ключа не существует")
+# print(val1)
+# print(val2)
+#
+# item1 = d.pop('b', "Такого ключа не существует")
+# print(item1)
+# print(d)
+#
+# item2 = d.pop('e', "Такого ключа не существует")
+# print(item2)
+# print(d)
+#
+# item3 = d. popitem()  # удаляет последний элемент
+# print(item3)
+# print(d)

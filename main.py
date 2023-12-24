@@ -1513,3 +1513,281 @@ import math
 # item3 = d. popitem()  # удаляет последний элемент
 # print(item3)
 # print(d)
+
+
+# lesson 13
+
+# d = {"a": 1, "c": 3, "b": 2}
+#
+# d1 = {"r": 7, "q": 40}
+#
+# d.update(d1)
+# print(d)
+#
+# # d2 = {"a": 20, "b": 9}
+# d2 = [("a", 20), ("b", 9)]
+# d.update(d2)
+# print(d)
+
+# x = {"a": 1, "b": 2}
+# y = {"b": 3, "c": 4}
+# # z = {}
+# # z.update(x)
+# # z.update(y)
+# z = x | y  # объединение словарей
+# print(z)
+
+# a = {
+#     "first": {
+#         1: "one",
+#         2: "two",
+#         3: "three",
+#     },
+#     "second": {
+#         4: "four",
+#         5: "five",
+#     }
+# }
+# print(a)
+# for key in a:
+#     print(key)
+#     for value in a[key]:
+#         print("\t", value, ":", a[key][value], sep="")
+
+# sales = {
+#     "John": {
+#         "N": 3056,
+#         "S": 8463,
+#         "E": 8441,
+#         "W": 2694,
+#     },
+#     "Tom": {
+#         "N": 4832,
+#         "S": 6786,
+#         "E": 4737,
+#         "W": 3612,
+#     },
+#     "Ane": {
+#         "N": 5239,
+#         "S": 4802,
+#         "E": 5820,
+#         "W": 1859,
+#     },
+#     "Fiona": {
+#         "N": 3904,
+#         "S": 3645,
+#         "E": 8821,
+#         "W": 2451,
+#     },
+# }
+# for x in sales:
+#     print(x)
+#     for y in sales[x]:
+#         print("\t", y, ":", sales[x][y], sep='')
+# person = input("Имя: ")
+# region = input("Регион: ")
+# print(sales[person][region])
+# new_data = int(input("Новое значение: "))
+# sales[person][region] = new_data
+# print(sales[person])
+
+# d = {"N": 3904, "S": 3645, "E": 8821, "W": 2451}
+# d = {value: key for key, value in d.items()}
+# print(d)
+
+# d = {"N": 1, "S": 2, "E": 3, "W": 4}
+# new_d = {k: v for k, v in d.items() if v <= 2}
+# print(new_d)
+
+# a = ["one", 1, 2, 3, "two", 10, 20, "three", 15, 36, 60, "four", -20]
+# d = {}
+# current_key = ""
+# for item in a:
+#     if type(item) == str:
+#         d[item] = []
+#         current_key = item
+#     else:
+#         d[current_key].append(item)
+# print(d)
+
+# d = dict(zip([1, 2, 3], ["one", "two", "three"]))  # объединяет
+# print(d)
+#
+# a = [1, 2, 3]
+# b = ["one", "two", "three"]
+# f = {k: v for k, v in zip(b, a)}
+# print(f)
+
+# a = [1, 2, 3]
+# b = ["one", "two", "three"]
+# q = [4.5, 4.9, 1.8]
+# c = tuple(zip(a, b, q))
+# p = list(zip(a, b, q))
+# s = set(zip(a, b, q))
+# d = dict(zip(a, b))
+# print(c, p, s, d, sep="\n")
+
+# d_one = {"name": "Igor", "last_name": "Petrov", "job": "Consultant"}
+# d_two = {"name": "Irina", "last_name": "Petrova", "job": "Manager"}
+# for (k1, v1), (k2, v2) in zip(d_one.items(), d_two.items()):
+#     print(k1, "->", v1)
+#     print(k2, "->", v2)
+
+# d = [(1, "one"), (2, "two"), (3, "three")]
+# a, b = zip(*d)  # распаковывает
+# print(a, b, sep="\n")
+
+# a = ["two", "one", "three"]
+# b = [3, 2, 1]
+# d = list(zip(a, b))
+# d.sort()
+# print(d)
+# print(dict(d))
+# s = sorted(d.items())
+
+# one = {"apple": 0.45, "orange": 0.7}
+# two = {"pepper": 0.1, "onion": 0.55}
+# print({**one, **two})
+# for k, v in {**two, **one}.items():
+#     print(k, "->", v)
+
+# data = ["red", "green", "blue"]
+# num = 1
+# for v in data:
+#     print(num, ") ", v, sep="")
+#     num += 1
+# print()
+# for n, v in enumerate(data, 1):
+#     print(n, ") ", v, sep="")
+
+
+# lesson 14
+
+# a = [1, 2, 3]
+# b = [*a, 4, 5, 6]  # * распаковывает
+# print(b)
+
+# def func(*args):
+#     return args
+#
+#
+# print(func(2))
+# print(func(2, 3, 4, "abc"))
+
+# def summa(*params):
+#     res = 0
+#     for i in params:
+#         res += i
+#     return res
+#
+#
+# print(summa(1, 2, 3, 4, 5, 6, 7, 8, 9))
+# print(summa(3, 4, 5))
+
+# def to_dict(*args):
+#     return {element: element for element in args}
+#
+#
+# print(to_dict(1, 2, 3, 4))
+# print(to_dict("grey", (2, 17), 3.11, -4))
+
+# def func(*args):
+#     middle = sum(args) / len(args)
+#     print(middle)
+#     res = []
+#     for element in args:
+#         if element < middle:
+#             res.append(element)
+#     return res
+#
+#
+# first = func(1, 2, 3, 4, 5, 6, 7, 8, 9)
+# print(first)
+# second = func(3, 6, 1, 9, 5)
+# print(second)
+
+# def func(a, *args):
+#     return a, args
+#
+#
+# print(func(1))
+# print(func(1, 2, 3, 4, 5, 6, 7))
+
+# def print_score(student, *scores):
+#     print(f"Student Name {student}")
+#     for score in scores:
+#         print(score)
+#
+#
+# print_score("Irina", 5, 4, 2, 3, 4, 4)
+# print_score("Petr", 4, 2, 4, 5, 3)
+# print_score("Lev")
+
+# def func(**kwargs):
+#     return kwargs
+#
+#
+# print(func(a=1, b=2, c=3))
+
+# def intro(**data):
+#     for k, v in data.items():
+#         print(k, "->", v)
+#     print()
+#
+#
+# intro(name="Irina", surname="Black", age=22)
+# intro(name="Igor", surname="Petrov", email="igor@gmail.com", age=22, phone="+70910958388")
+
+# def db(**kwargs):
+#     my_dict.update(kwargs)
+#
+#
+# my_dict = {"one": "first"}
+# db(k1=22, k2=31, k3=11, k4=91)
+# print(my_dict)
+
+# def func(a,  *args, d, **kwargs):
+#     return a, d, args, kwargs
+#
+#
+# # print(func(5))  # чтобы сработало, убрать нужно d
+# print(func(5, 9, 2, 35, 643, k1=22, k2=32, k3=9, d=55))
+
+# name = "Tom"  # глобальная переменная
+#
+#
+# def hi():
+#     # global name
+#     name = "Sam"  # локальная переменная
+#     surname = "Black"  # локальная переменная
+#     print("Hello", name, surname)
+#
+#
+# def bye():
+#     print("Bye", name)
+#
+#
+# hi()
+# bye()
+
+# i = 5
+#
+#
+# def func(arg=i):
+#     print(arg)
+#
+#
+# i = 6
+# func()
+
+# def add_five(a):
+#     x = 2
+#
+#     def add_some():
+#         print("x =", x)
+#         return a + x
+#
+#     return add_some()
+#
+#
+# print(add_five(5))

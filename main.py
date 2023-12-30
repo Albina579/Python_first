@@ -1791,3 +1791,230 @@ import math
 #
 #
 # print(add_five(5))
+
+
+# lesson 15
+
+# def outer(who):
+#     def inner():
+#         print("Hello", who)
+#     inner()
+#
+#
+# outer("world")
+
+# def fun1():
+#     a = 5
+#
+#     def fun2(b):
+#         a = 9
+#         print(a + b)
+#
+#     print("a =", a)
+#     fun2(4)
+#
+#
+# fun1()
+
+# x = 25
+# t = 0
+#
+#
+# def fn():
+#     global t
+#     a = 30
+#
+#     def inner():
+#         nonlocal a
+#         a = 35
+#         print("a =", a)
+#
+#     inner()
+#     t = a
+#
+#
+# fn()  # вызывать обязательно
+# c = x + t
+# print(c)
+
+# def fn1():
+#     x = 25  # 2
+#
+#     def fn2():
+#         x = 33  # 4
+#
+#         def fn3():
+#             nonlocal x  # переменная на уровень выше
+#             x = 55  # 6
+#
+#         fn3()  # 5
+#         print("fn2, x =", x)  # 7
+#
+#     fn2()  # 3
+#     print("fn1, x =", x)  # 8
+#
+#
+# fn1()  # 1
+
+# def outer(a1, b1, a2, b2):
+#     a = 0
+#     b = 0
+#
+#     def inner():
+#         nonlocal a, b
+#         a = a1 + a2
+#         b = b1 + b2
+#
+#     inner()
+#     return [a, b]
+#
+#
+# res = outer(2, 3, -1, 4)
+# print(res)
+
+# Замыкание
+# def outer(n):
+#     def inner(x):
+#         return n+x
+#
+#     return inner
+#
+#
+# item1 = outer(5)
+# print(item1(10))
+#
+# item2 = outer(5)
+# print(item2(2))
+
+# def func1():
+#     a = 1
+#     b = "line"
+#     c = [1, 2, 3]
+#
+#     def func2():
+#         nonlocal a, b
+#         c.append(4)
+#         a += 1
+#         b += "_new"
+#         return a, b, c
+#
+#     return func2
+#
+#
+# func = func1()
+# print(func())
+
+# def func(city):
+#     s = 0
+#
+#     def inner():
+#         nonlocal s
+#         s += 1
+#         print(city, s)
+#
+#     return inner
+#
+#
+# res1 = func("Moscow")
+# res1()
+# res1()
+# res2 = func("Sochi")
+# res2()
+# res2()
+# res2()
+# res1()
+
+# анонимные функции lambda
+# print((lambda x, y: x + y)(1, 2))
+#
+# func = lambda x, y: x + y
+# print(func(1, 2))
+
+# print((lambda x, y: x**2 + y**2)(2, 5))
+# print((lambda x, y=5: x**2 + y**2)(2, 10))
+# print((lambda x=3, y=5: x**2 + y**2)(2, 10))
+
+# print((lambda *args: args)(1, 2, 3, 4, 5))
+
+# y = (
+#     lambda x: x*2,
+#     lambda x: x*3,
+#     lambda x: x*4,
+# )
+#
+# for i in y:
+#     print(i("abc__"))
+
+# def outer(n):
+#     def inner(x):
+#         return x+n
+#     return inner
+#
+#
+# f = outer(5)
+# print(f(10))
+
+
+# def outer1(n):
+#     return lambda x: x+n
+#
+#
+# f1 = outer1(5)
+# print(f1(10))
+
+# outer2 = lambda n: lambda x: x + n
+# f2 = outer2(5)
+# print(f2(10))
+
+# print((lambda n: lambda x: x + n)(5)(10))
+
+# print((lambda x: lambda y: lambda z: x+y+z)(2)(4)(6))
+
+# d = {"b": 3, "c": 1, "a": 2}
+# lst = list(d.items())
+# print(lst)
+# lst.sort(key=lambda i: i[1])
+# print(lst)
+# d1 = dict(lst)
+# print(d1)
+
+# players = [
+#     {"name": "Антон", "lastname": "Бирюков", "rating": 9},
+#     {"name": "Алексей", "lastname": "Бодня", "rating": 10},
+#     {"name": "Фёдор", "lastname": "Сидоров", "rating": 4},
+#     {"name": "Михаил", "lastname": "Семёнов", "rating": 6},
+# ]
+#
+# res = sorted(players, key=lambda item: item["lastname"])
+# print(res)
+#
+# res2 = sorted(players, key=lambda item: item["rating"], reverse=True)
+# print(res2)
+
+# a = [
+#     lambda x, y: x + y,
+#     lambda x, y: x - y,
+#     lambda x, y: x * y,
+#     lambda x, y: x / y,
+# ]
+#
+# print(a[0](5, 2))
+# print(a[1](5, 2))
+# print(a[2](5, 2))
+# print(a[3](5, 2))
+
+# d = {
+#     1: lambda: print("Monday"),
+#     2: lambda: print("Tuesday"),
+#     3: lambda: print("Wednesday"),
+#     4: lambda: print("Thursday"),
+#     5: lambda: print("Friday"),
+#     6: lambda: print("Saturday"),
+#     7: lambda: print("Sunday"),
+# }
+#
+# d[6]()
+
+# print((lambda a, b: a if a > b else b)(15, 13))
+
+# print((lambda a, b, c: a if a < b < c else (b if b < c else c))(15, 13, 14))

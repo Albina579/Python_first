@@ -1,4 +1,5 @@
 # lesson 1
+import re
 
 # типизация данных: явная, динамическая, сильная (не можем сложить разные типы данных)
 # print("HI!!!!!!!!!")
@@ -2368,3 +2369,108 @@
 
 
 # lesson 18
+
+# from random import randint
+#
+# SHORTEST = 7
+# LONGEST = 10
+# MIN_ASCII = 33
+# MAX_ASCII = 126
+#
+#
+# def random_password():
+#     random_length = randint(SHORTEST, LONGEST)
+#     result = ""
+#     for i in range(random_length):
+#         result += chr(randint(MIN_ASCII, MAX_ASCII))
+#     return result
+#
+#
+# print("Ваш случайный пароль:", random_password())
+
+# s = "hello, WORLD! I am learning Python."
+# print(s.capitalize())
+# print(s.lower())
+# print(s.upper())
+# print(s.swapcase())
+# print(s.title())
+# print(s.count("h"))
+# print(s.count("h", 1))
+# print(s.find("l"))
+# print(s.rfind("l"))
+# print(s.index("l"))
+# print(s.rindex("l"))
+
+# s = input("Введите 2 слова через пробел: ")
+# first = s[:s.find(" ")]
+# second = s[s.find(" ")+1:]
+# print(f"{second} {first}")
+
+# s = "hello, WORLD! I am learning Python."
+# print(s.startswith("hello", 3))
+# print(s.endswith("on."))
+# print(s.endswith("lo", 3, 5))
+
+# print("abc123".isalpha())
+# print("abcABC".isalpha())
+# print("123".isdigit())
+# print("123.234".isdigit())
+# print("123abc".isalnum())
+# print("123Aabc".isalnum())
+# print("abc".islower())
+# print("ABC9".isupper())
+
+# print("  py".lstrip())
+# print("py   ".rstrip())
+# print("    py   ".strip())
+
+# print("https://www.python.org".lstrip())
+# print("https://www.python.org".lstrip("/:pths").rstrip(".org"))
+# print("https://www.python.org".strip("/:pths.org"))
+
+# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования"
+# print(str1)
+# print(str1.replace("Nython", "Python"))
+
+# s1 = "-"
+# seq = ("a", "b", "c")
+# print(s1.join(seq))
+#
+# print("..".join(["1", "2"]))
+# print(":".join("Hello"))
+
+# s = "hello, WORLD! I am learning Python."
+# print(s.split())
+#
+# print("www.python.org".split("."))
+
+# a = input("-> ").split()
+# print(a[0], a[1][0] + ".", a[2][0] + ".")
+
+# a = input("Введите коды символов через пробел: ").split()
+# print(a)
+#
+# b = list(map((int, a)))
+# print(b)
+
+# import re
+# s = "Я ищу совпадения в 2024 году. И я их найду в 2 счёта."
+# reg = r"\."
+# print(re.findall(reg, s))  # возвращает список, содержащий все совпадения с шаблоном регулярного вырвжения
+# print(re.search(reg, s))  # возвращает месторасположение первого совпадения с шаблоном
+# print(re.search(reg, s).span())
+# print(re.search(reg, s).start())
+# print(re.search(reg, s).end())
+# print(re.search(reg, s).group())
+# print(re.match(reg, s))  # возвращает месторасположение первого совпадения с шаблоном только в начале строки
+# print(re.split(reg, s))  # возвращает список, в котором строка разбита по шаблону
+# print(re.sub(reg, "!", s))  # поиск и замена
+
+# import re
+# s = "Я ищу совпадения в 2024 году. И я их найду в 2 счёта. 189274"
+# # reg = r"[204]"
+# # reg = r"[0-9]"
+# # reg = r"[12][0-9][0-9][0-9]"
+# # reg = r"[А-яёЁ]"
+# reg = r"[^А-яёЁ]"
+# print(re.findall(reg, s))

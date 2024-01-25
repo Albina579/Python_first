@@ -2467,10 +2467,108 @@ import re
 # print(re.sub(reg, "!", s))  # поиск и замена
 
 # import re
-# s = "Я ищу совпадения в 2024 году. И я их найду в 2 счёта. 189274"
+# s = "Я ищу совпадения в 2024 году. И я их найду в 2 счёта. 189274 Hello[-World]"
 # # reg = r"[204]"
 # # reg = r"[0-9]"
 # # reg = r"[12][0-9][0-9][0-9]"
 # # reg = r"[А-яёЁ]"
 # reg = r"[^А-яёЁ]"
+# reg = r"[a-zA-Z\[\]-]"
+# reg = r"[.]"   //  "\."
+# reg = r"[\w]"  // поиск букв и английских и русских;  [\W] - инвертирует
+# reg = r"[\w+]"
+# reg = r"[\d]"  // поиск только цифр:  [\D] - инвертирует
+# reg = r"[\d+]"
+# reg = r"[\s]"  // поиск пробельных символов;  [\S] - инвертирует
+# reg = r"[\AЯ ищу]"  // поиск в начале строки
+# reg = r"[World]\Z]"  // поиск в конце строки
+# reg = r"[году\b]"  // поиск слова
 # print(re.findall(reg, s))
+# reg = r"[\d{4}]"  // 4 повторений
+# reg = r"[\d{4,8}]"  // от 4 до 8 повторений
+# reg = r"[\d{4,}]"  // не менее 4 повторений
+# reg = r"[\d{,8}]"  // не более 8 повторений
+# reg = r"\w*"  // 0 или более
+# reg = r"\w?"  // 0 или 1 вхождение
+# reg = r"\w+"  // 1 или более
+
+
+# lesson 19
+
+# import re
+# s = "Час в 24-часовом формате от 00 до 23. 2021-06-15Е21:45. Минуты в диапазоне от 00 до 59. 2021-06-15Т01:09."
+# reg = r"[0-2][0-9]:[0-5][0-9]"
+# print(re.findall(reg, s))
+
+# d = "Цифры: 7, +17, -42, 0013, 0.3"
+# print(re.findall(r"[+-]?\d+[.\d]*", d))
+
+# s = "05-03-1987 # Дата рождения"
+# print("Дата рождения:", re.sub(r"#.*", "", s))
+
+# s = "05-03-1987 # Дата рождения"
+# print("Дата рождения:", re.sub('-', '.', re.sub(r"#.*", "", s)))
+
+# s = "author=Пушкин А.С.; title = Евгений Онегин; price =200; year= 1831"
+# reg = r"\w+\s*=\s*[^;]+"
+# print(re.findall(reg, s))
+
+# s = "12 сентября 2021 года 235"
+# reg = r"\d{2,4}"
+# reg = r"\d{2,}"
+# reg = r"\d{,4}"
+# print(re.findall(reg, s))
+
+# s = "+7 499 456-45-78, +74994564578, 7 (499) 456 45 78, 74994564578"
+# reg = r"\+?7\d{10}"
+# print(re.findall(reg, s))
+
+# s = "Я ищу совпадения в 2024 году. И я их найду в 2 счёта. 189274 Hello[-World] 5378 97648"
+# reg = r"^\w+\s\w+"
+# reg = r"\w+\s\w+$"
+# print(re.findall(reg, s))
+
+# import re
+#
+#
+# def valid_login(name):
+#     return re.findall(r"^[A-Za-z0-9_-]{6,16}$", name)
+#
+#
+# print(valid_login("Python_master"))
+# print(valid_login("Python!!!"))
+# print(valid_login("Python!!!Python"))
+
+# print(re.findall(r"\w+", "12 + й"))
+# print(re.findall(r"\w+", "12 + й", flags=re.ASCII))
+
+# text = "hello world"
+# print(re.findall(r"\w+", text, re.DEBUG))
+
+# s = "Я ищу совпадения в 2024 году. И я их найду в 2 счёта."
+# reg = r"я"
+# print(re.findall(reg, s, re.IGNORECASE))
+
+# text = """
+# one
+# two
+# """
+# print(re.findall(r"one.\w+", text))
+# print(re.findall(r"one.\w+", text, re.DOTALL))
+# print(re.findall(r"one$", text))
+# print(re.findall(r"one$", text, re.MULTILINE))
+
+# print(re.findall(r"""
+# [a-z.-]+
+# @
+# [a-z.-]+
+# """, "test@mail.ru", re.VERBOSE))
+
+# text = """Python,
+# python,
+# PYTHON"""
+# reg = "(?im)^python"
+# print(re.findall(reg, text))
+
+
+# lesson 20

@@ -2664,3 +2664,115 @@ import re
 
 
 # lesson 21
+
+# def elevator(n):
+#     if n == 0:
+#         print("Вы в подвале")
+#         return
+#     print("=>", n)
+#     elevator(n-1)
+#     print(n, end=" ")
+#
+#
+# n1 = int(input("На каком вы этаже: "))
+# elevator(n1)
+
+# def sum_list(lst):
+#     if len(lst) == 1:
+#         print(lst, "=> lst[0]", lst[0])
+#         return lst[0]
+#     else:
+#         print(lst, "=> lst[0]", lst[0])
+#         return lst[0] + sum_list(lst[1:])
+#
+#
+# print(sum_list([1, 3, 5, 7, 9]))
+
+# def to_str(n, base):
+#     convert = "0123456789ABCDEF"
+#     if n < base:
+#         return convert[n]
+#     else:
+#         return to_str(n // base, base) + convert[n % base]
+#
+#
+# print(to_str(365, 10))
+# print(to_str(18, 2))
+# print(to_str(18, 8))
+# print(to_str(18, 16))
+
+# names = ["Adam", ["Bob", ["Chet", "Cat"], "Bard", "Bert"], "Alex", ["Bea", "Bill"], "Ann"]
+# print(names)
+# print(names[0])
+# print(isinstance(names[0], list))
+# print(names[1])
+# print(isinstance(names[1], list))
+# print(names[1][0])
+# print(names[1][1])
+# print(isinstance(names[1][1], list))
+# print(names[1][1][0])
+# print(isinstance(names[1][1][0], list))
+# def count_item(lst):
+#     count = 0
+#     for item in lst:
+#         if isinstance(item, list):
+#             count += count_item(item)
+#         else:
+#             count += 1
+#     return count
+#
+#
+# print(count_item(names))
+
+# def remove(text):
+#     if not text:
+#         return  ""
+#     if text[0] == "\t" or text[0] == " ":
+#         return remove(text[1:])
+#     else:
+#         return text[0] + remove(text[1:])
+#
+#
+# print(remove(" Hello\tWorld "))
+
+# f = open("test.txt", "r")  # "r" - чтение
+# print(*f)
+# print(f)
+# f.close()
+# print(f.closed)
+# print(f.mode)
+# print(f.name)
+# print(f.encoding)
+
+# f = open("test.txt", "r")
+# print(f.read(3))
+# print(f.read())
+# f.close()
+
+# f = open("test1.txt", "r")
+# # print(f.readline(8))
+# # print(f.readline())
+# print(f.readlines(16))
+# print(f.readlines())
+# f.close()
+
+# f = open("test1.txt", "r")
+# for line in f:
+#     print(line)
+# f.close()
+
+# f = open("xyz.txt", "w")  # "w" - запись; стирает всё что было и записывает заново
+# f.write("Hello\nWold!\n")
+# f.close()
+
+# f = open("xyz.txt", "a")  # "a" - дозапись; в конце файла дозаписывает
+# f.write("New text.\n")
+# f.close()
+
+# f = open("xyz.txt", "w")
+# line = ["This is lone 1\n", "This is line 2\n"]
+# f.writelines(line)
+# f.close()
+
+
+# lesson 22

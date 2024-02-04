@@ -2735,7 +2735,7 @@ import re
 #
 # print(remove(" Hello\tWorld "))
 
-# f = open("test.txt", "r")  # "r" - чтение
+# f = open("test.txt", "r")  # "r" - чтение существующего файла
 # print(*f)
 # print(f)
 # f.close()
@@ -2761,7 +2761,7 @@ import re
 #     print(line)
 # f.close()
 
-# f = open("xyz.txt", "w")  # "w" - запись; стирает всё что было и записывает заново
+# f = open("xyz.txt", "w")  # "w" - запись; стирает всё что было и записывает заново (перезаписывает)
 # f.write("Hello\nWold!\n")
 # f.close()
 
@@ -2776,3 +2776,246 @@ import re
 
 
 # lesson 22
+
+# f = open('xyz.txt', 'w')
+# lst = [str(i) for i in range(1, 20)]
+# print(lst)
+# for index in lst:
+#     f.write(index + "\t")
+# f.close()
+
+# f = open("text2.txt", "w")
+# f.write("Замена строки в текстовом файле;\nИзменить строку в списке;\nЗаписать список в файл\n")
+# f.close()  # закрывает и сохраняет файл
+#
+# f = open("text2.txt", "r")
+# rl = f.readlines()  # считали список строк
+# f.close()
+#
+# print(rl)
+# rl[1] = "Hello World\n"
+# print(rl)
+#
+# f = open("text2.txt", "w")
+# f.writelines(rl)
+# f.close()
+
+# f = open("text2.txt", "w")
+# f.write("Замена строки в текстовом файле;\nИзменить строку в списке;\nЗаписать список в файл\n")
+# f.close()
+#
+# f = open("text2.txt", "r")
+# rl = f.readlines()
+# f.close()
+# print(rl)
+#
+# index = int(input("Введите индекс удаляемой строки: "))
+# if 0 <= index <= len(rl):
+#     rl.pop(index)
+# else:
+#     print("Вы ввели несуществующий индекс")
+#
+# print(rl)
+# f = open("text2.txt", "w")
+# f.writelines(rl)
+# f.close()
+
+# f = open("test.txt", 'r')
+# print(f.read(3))
+# print(f.tell())  # возвращает текущую позицию условного курсора в файле
+# print(f.seek(1))  # переместил условный курсор на заданную позицию
+# print(f.read())
+# print(f.tell())
+# f.close()
+
+# f = open("test.txt", 'r+')  # в существующем файле читаем и перезаписываем данные
+# print(f.write("I am learning Python"))
+# print(f.tell())
+# print(f.seek(3))
+# print(f.write("-new string-"))
+# print(f.tell())
+# f.close()
+
+# f = open("test.txt", 'w+')  # если файла нет, то он создастся, а в существующем всё удалит
+# print(f.write("I am learning Python"))
+# print(f.tell())
+# print(f.seek(3))
+# print(f.write("-new string-"))
+# print(f.tell())
+# f.close()
+
+# f = open("test.txt", 'a+')  # в любом случае будет дозаписывать в конец файла
+# print(f.write("I am learning Python"))
+# print(f.tell())
+# print(f.seek(3))
+# print(f.write("-new string-"))
+# print(f.tell())
+# f.close()
+
+# with open("test.txt", 'w+') as f:  # автоматически закрывает файл
+#     print(f.write('01234\n56789'))
+#
+# with open("test.txt", "r") as f:
+#     for line in f:
+#         print(line[:3])
+
+# file_name = "res_1.txt"
+# lst = [4.5, 2.8, 3.9, 1.0, 0.03, 4.33, 7.777]
+#
+#
+# def get_line(lt):
+#     lt = list(map(str, lt))
+#     print(lt)
+#     return " ".join(lt)
+#
+#
+# with open(file_name, "w") as f:
+#     f.write(get_line(lst))
+#
+# with open(file_name, "r") as f:
+#     nums = f.read()
+#
+# print(nums)
+#
+# nums_list = list(map(float, nums.split()))
+# print(nums_list)
+# print(sum(nums_list))
+# print(len(nums_list))
+# print("Done!")
+
+# def longest_words(file):
+#     with open(file, "r", encoding="utf-8") as text:
+#         w = text.read().split()
+#         max_length = len(max(w, key=len))  # длина самого длинного слова
+#         res = [word for word in w if len(word) == max_length]
+#         if len(res) == 1:
+#             return res[0]
+#         return res
+#
+#
+# print(longest_words("words.txt"))
+
+# one = 'one.txt'
+# two = 'two.txt'
+#
+# text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\n"
+# with open(one, 'w') as f:
+#     f.write(text)
+#
+# with open(one, "r") as fr, open(two, "w") as fw:
+#     for line in fr:
+#         line = line.replace("Строка", "Линия -")
+#         fw.write(line)
+
+
+# lesson 23
+
+import os
+
+# print(os.getcwd())  # вернёт путь к текущей директории
+# print(os.listdir())  # возвращает список директорий и всех файлов
+# print(os.listdir(".."))  # поднимаемся на уровень выше
+
+# os.mkdir("folder1")  # создание папки
+# os.makedirs("nested1/nested2/nested3")  # создание папки с промежуточными директориями
+
+# os.rmdir("folder1")  # удаляет пустую папку
+
+# os.remove("xyz.txt")  # удаляет файл
+
+# os.remove("folder/test.txt")
+# os.rmdir("folder")
+
+# os.rename("nested1", "test")  # переименовали папку
+
+# os.rename("words.txt", "test/words_new.txt")  # переместили в существующую папку и переименовали файл
+
+# os.renames("two.txt", "folder1/file.txt")  # переместили в созданную папку и переименовали
+
+# for root, dirs, files in os.walk("test"):
+#     print("Root", root)
+#     print("Subdirs", dirs)
+#     print("Files", files)
+#     print()
+
+
+# def remove_empty_dirs(root_trees):
+#     print(f"Удаление пустых директорий в ветви {root_trees}")
+#     print("-" * 50)
+#
+#     for root, dirs, files in os.walk(root_trees):
+#         if not os.listdir(root):
+#             os.rmdir(root)
+#             print(f"Директория {root} удалена")
+#
+#     print("-" * 50)
+#
+#
+# remove_empty_dirs("test")
+
+# print(os.path.split(r"C:\Users\albin\OneDrive\Рабочий стол\PYTHON\folder"))
+# print(os.path.split(r"C:\Users\albin\OneDrive\Рабочий стол\PYTHON\folder")[1])
+# print(os.path.dirname(r"C:\Users\albin\OneDrive\Рабочий стол\PYTHON\folder"))
+# print(os.path.basename(r"C:\Users\albin\OneDrive\Рабочий стол\PYTHON\folder"))
+
+# print(os.path.join(r"C:\Users", "Рабочий стол", "folder"))
+
+# dirs = [r'Work\F1', r'Work\F2\F21']
+# for d in dirs:
+#     os.makedirs(d)
+#
+# files = {
+#     'Work': ['w.txt'],
+#     r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+#     r'Work\F2\F21': ['f211.txt', 'f212.txt'],
+# }
+#
+# for d, f in files.items():
+#     for file in f:
+#         file_path = os.path.join(d, file)
+#         open(file_path, "w").close()
+#
+# files_with_text = [r'Work\w.txt', r'Work\F1\f12.txt', r'Work\F2\F21\f211.txt', r'Work\F2\F21\f212.txt']
+# for file in files_with_text:
+#     with open(file, "w") as f:
+#         f.write(f"Какой-то текст для файла, расположенного по пути: {file}")
+#
+#
+# def print_tree(root, top_down):
+#     print(f"Обход {root} {'сверху вниз' if top_down else 'снизу вверх'}")
+#     for root, dirs, files in os.walk(root, top_down):
+#         print(root)
+#         print(dirs)
+#         print(files)
+#     print("-" * 50)
+#
+#
+# print_tree("Work", False)
+# print_tree("Work", True)
+
+# print(os.path.exists(r"C:\Users\albin\OneDrive\Рабочий стол\PYTHON\folder\test.txt"))  # проверяет, существует ли путь
+# print(os.path.isfile(r"C:\Users\albin\OneDrive\Рабочий стол\PYTHON\folder\test.txt"))  # проверяет, файл ли это
+# print(os.path.isdir(r"C:\Users\albin\OneDrive\Рабочий стол\PYTHON\folder"))  # проверяет, папка ли это
+
+# import time
+#
+# path = "main.py"
+# # print(os.path.getsize(path))  # возвращает размер файла в байтах
+#
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getatime(path))))
+# # возвращает время последнего доступа к файлу
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getctime(path))))
+# # возвращает время создания файла
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getmtime(path))))
+# # возвращает последнего изменения файла
+
+# file_path = r"test\nested2\nested3\text2.txt"
+# if os.path.exists(file_path):
+#     dirs, name = os.path.split(file_path)
+#     print(f"{name} ({dirs}) - последний доступ к файлу {os.path.getatime(file_path)}")
+# else:
+#     print(f"Файл {file_path} не существует")
+
+
+# lesson 24
+

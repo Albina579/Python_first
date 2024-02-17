@@ -2910,7 +2910,7 @@ import re
 
 # lesson 23
 
-import os
+# import os
 
 # print(os.getcwd())  # вернёт путь к текущей директории
 # print(os.listdir())  # возвращает список директорий и всех файлов
@@ -3018,4 +3018,431 @@ import os
 
 
 # lesson 24
+
+# ООП
+# парадигмы ООП:
+# инкапсуляция - сокрытие данных (защита от ошибочных данных),
+# наследование
+# полиморфизм
+
+# class Point:
+#     x = 1  # x, y - свойства (поля, переменные)
+#     y = 1
+#
+#
+# p1 = Point()  # объект - экземпляр класса
+# p1.x = 5
+# p1.y = 75
+# print(p1.x)
+# print(p1.y)
+# print(p1.__dict__)  # {'x': 5, 'y': 75}
+# print(id(p1))
+#
+# p2 = Point()
+# print(p2.x)
+# print(p2.y)
+# print(p2.__dict__)  # {}
+# print(id(p2))
+#
+# print(id(Point))
+
+# class Point:
+#     x = 1
+#     y = 1
+#
+#     def set_coord(self):  # методы (функции)
+#         print(self.__dict__)  # self - ссылка на экземпляр класс
+#
+#
+# p1 = Point()
+# p1.x = 5
+# p1.y = 75
+# p1.set_coord()  # {'x': 5, 'y': 75}
+# # Point.set_coord(p1)
+#
+# p2 = Point()
+# p2.x = 10
+# p2.y = 30
+# p2.set_coord()  # {'x': 10, 'y': 30}
+
+# class Point:
+#     x = 1
+#     y = 1
+#
+#     def set_coord(self, x, y):
+#         self.x = x
+#         self.y = y
+#         print(self.__dict__)
+#
+#
+# p1 = Point()
+# p1.set_coord(5, 25)  # {'x': 5, 'y': 25}
+#
+# p2 = Point()
+# p2.set_coord(7, 9)  # {'x': 7, 'y': 9}
+
+# class Human:
+#     name = "name"
+#     birthday = "00.00.0000"
+#     phone = "00-00-00"
+#     country = "country"
+#     city = "city"
+#     address = "street, house"
+#
+#     def print_info(self):
+#         print(" Персональные данные ". center(40, "*"))
+#         print(f"Имя: {self.name}\nДата рождения: {self.birthday}\nНомер телефона: {self.phone}\n"
+#               f"Страна: {self.country}\nГород: {self.city}\nДомашний адрес: {self.address}")
+#         print("=" * 40)
+#
+#     def input_info(self, first_name, birthday, phone, country, city, address):
+#         self.name = first_name
+#         self.birthday = birthday
+#         self.phone = phone
+#         self.country = country
+#         self.city = city
+#         self.address = address
+#
+#     def set_address(self, address):
+#         self.address = address
+#
+#     def get_address(self):
+#         return self.address
+#
+#
+# h1 = Human()
+# h1.print_info()
+# h1.input_info("Юля", "23.05.1986", "45-46-98", "Россия", "Москва", "Чистопрудный бульвар, 1А")
+# h1.print_info()
+# h1.set_address("ул. Ленина, 56")
+# print(h1.get_address())
+
+# class Person:
+#     skill = 10  # статическое свойство
+#     count = 0
+#     # name = ""
+#     # surname = ""
+#
+#     def __init__(self, name, surname):  # инициализатор
+#         self.name = name  # динамическое свойство
+#         self.surname = surname
+#         print("Инициализатор класса", self)
+#         Person.count += 1
+#
+#     def __del__(self):
+#         print("Удалить экземпляр класса", self)
+#
+#     def print_info(self):
+#         print(f"Данные сотрудника: {self.name} {self.surname}")
+#
+#     def add_skill(self, k):
+#         self.skill += k
+#         print(f"Квалификация сотрудника {self.skill}", end="\n\n")
+#
+#
+# p1 = Person("Виктор", "Резник")
+# p1.print_info()
+# p1.add_skill(3)
+# # del p1
+# print(p1.count)
+#
+# p2 = Person("Анна", "Долгих")
+# p2.print_info()
+# p2.add_skill(2)
+# print(p2.count)
+#
+# print(Person.count)
+
+# class Robot:
+#     k = 0
+#
+#     def __init__(self, name):
+#         self.name = name
+#         print(f"Инициализация робота: {self.name}")
+#         Robot.k += 1
+#
+#     def __del__(self):
+#         print(self.name, "выключается!")
+#         Robot.k -= 1
+#         if Robot.k == 0:
+#             print(self.name, "был последним")
+#         else:
+#             print("работающих роботов осталось: ", Robot.k)
+#
+#     def say_hi(self):
+#         print(f"Приветствую! Меня зовут {self.name}")
+#
+#
+# droid1 = Robot("R2-D2")
+# droid1.say_hi()
+# print(f"Численность роботов: {Robot.k}")
+#
+# droid2 = Robot("C-3PO")
+# droid2.say_hi()
+# print(f"Численность роботов: {Robot.k}")
+#
+# print("\nЗдесь роботы могут проделать какую-то работу\n")
+# print("Роботы закончили свою работу. Давайте их выключим")
+#
+# del droid1
+#
+# del droid2
+#
+# print(f"Численность роботов: {Robot.k}")
+
+
+# lesson 25
+
+# class Point:
+#     __slots__ = ["__x", "__y"]  # закрывает доступ к другим свойствам
+#
+#     def __init__(self, x, y):
+#         self.__x = self.__y = 0
+#         if Point.__check_value(x) and Point.__check_value(y):
+#             self.__x = x  # private
+#             self.__y = y
+#
+#     def __check_value(c):
+#         if isinstance(c, int) or isinstance(c, float):
+#             return True
+#         else:
+#             return False
+#
+#     def get_coord(self):  # получить
+#         return self.__x, self.__y
+#
+#     def set_coord(self, x, y):  # установить
+#         if Point.__check_value(x) and Point.__check_value(y):
+#             self.__x = x
+#             self.__y = y
+#         else:
+#             print("Координаты должны быть числами")
+#
+#     def get_x(self):
+#         return self.__x
+#
+#     def get_y(self):
+#         return self.__y
+#
+#     def set_x(self, x):
+#         if Point.__check_value(x):
+#             self.__x = x
+#         else:
+#             print("Координата", x, "должна быть числом")
+#
+#     def set_y(self, y):
+#         if Point.__check_value(y):
+#             self.__x = y
+#         else:
+#             print("Координата", y, "должна быть числом")
+#
+#
+# p1 = Point("l", 10)
+# # p1.z = 1  # ошибка из-за slots
+# print(p1.get_coord())
+# p1.set_coord(100, "abc")
+# print(p1.get_coord())
+# p1.set_coord(100, 50)
+# print(p1.get_coord())
+#
+# p2 = Point(5, 10)
+# print(p2.get_coord())
+# print(p2.get_x())
+# print(p2.get_y())
+# print(p2.set_x("kh"))
+# print(p2.get_x())
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __get_x(self):
+#         return self.__x
+#
+#     def __get_y(self):
+#         return self.__y
+#
+#     def __set_x(self, x):
+#         self.__x = x
+#
+#     def __set_y(self, y):
+#         self.__y = y
+#
+#     x = property(__get_x, __set_x)
+#
+#
+# p1 = Point(5, 10)
+# print(p1.x)
+# p1.x = 100
+# print(p1.__dict__)
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     @property
+#     def x(self):
+#         return self.__x
+#
+#     @x.setter
+#     def x(self, x):
+#         if not isinstance(x, (int, float)):
+#             raise TypeError("Устанавливаемое значение должно быть числом")
+#         self.__x = x
+#
+#     @x.deleter
+#     def x(self):
+#         print("Удаление свойств")
+#         del self.__x
+#
+#     def __get_y(self):
+#         return self.__y
+#
+#     def __set_y(self, y):
+#         self.__y = y
+#
+#     # x = property(__get_x, __set_x, __del_x)
+#
+#
+# p1 = Point(5, 10)
+# print(p1.x)
+# p1.x = 100
+# del p1.x
+# print(p1.__dict__)
+
+# class KgToPounds:
+#     def __init__(self, kg):
+#         self.__kg = kg
+#
+#     @property  # getter
+#     def kg(self):
+#         return self.__kg
+#
+#     @kg.setter
+#     def kg(self, new_kg):
+#         if isinstance(new_kg, (int, float)):
+#             self.__kg = new_kg
+#         else:
+#             print("Задайте число!")
+#
+#     def to_pounds(self):
+#         return self.__kg * 2.205
+#
+#     def print_data(self):
+#         print(self.__kg, "кг => ", end='')
+#         print(self.to_pounds(), "фунтов")
+#
+#
+# weight = KgToPounds(12)
+# weight.print_data()
+# weight.kg = 41
+# weight.print_data()
+# weight.kg = "one"
+
+# class Point:
+#     __count = 0
+#
+#     def __init__(self, x=0, y=0):
+#         self.x = x
+#         self.y = y
+#         Point.__count += 1
+#
+#     @staticmethod
+#     def get_count():
+#         return Point.__count
+#
+#
+# p1 = Point()
+# # print(p1.__dict__)
+# p2 = Point()
+# p3 = Point()
+# print(Point.get_count())
+# print(p2.get_count())
+
+# class Change:
+#     @staticmethod
+#     def inc(x):
+#         return x + 1
+#
+#     @staticmethod
+#     def dec(x):
+#         return x - 1
+#
+#
+# print(Change.inc(10), Change.dec(10))
+
+# class Tools:
+#     @staticmethod
+#     def maximum(my_list):
+#         return  max(my_list)
+#
+#     @staticmethod
+#     def minimum(my_list):
+#         return min(my_list)
+#
+#     @staticmethod
+#     def middle(my_list):
+#         return sum(my_list) / len(my_list)
+#
+#     # @staticmethod
+#     # def factorial(number):
+#     #     if number == 1:
+#     #         return 1
+#     #     else:
+#     #         return Tools.factorial(number - 1) * number
+#
+#     @staticmethod
+#     def factorial(number):
+#         fact = 1
+#         for i in range(1, number+1):
+#             fact *= i
+#         return fact
+#
+#
+# print("Максимальное число", Tools.maximum([3, 5, 7, 9]))
+# print("Минимальное число", Tools.minimum([3, 5, 7, 9]))
+# print("Среднее арифметическое", Tools.middle([3, 5, 7, 9]))
+# print(f'Факториал числа {5}: {Tools.factorial(5)}')
+
+
+# from math import sqrt
+#
+#
+# class Square:
+#     count = 0
+#
+#     @staticmethod
+#     def square_triangle1(a, b, c):
+#         Square.count += 1
+#         p = (a + b + c) / 2
+#         return sqrt(p * (p - a) * (p - b) * (p - c))
+#
+#     @staticmethod
+#     def square_triangle2(a, b):
+#         Square.count += 1
+#         return 0.5 * a * b
+#
+#     @staticmethod
+#     def square_area(a):
+#         Square.count += 1
+#         return a * a
+#
+#     @staticmethod
+#     def square_rectangle(a, b):
+#         Square.count += 1
+#         return a * b
+#
+#     @staticmethod
+#     def get_count():
+#         return Square.count
+#
+#
+# print('Площадь треугольника по формуле Герона:', Square.square_triangle1(3, 4, 5))
+# print('Площадь треугольника через основание и высоту:', Square.square_triangle2(6, 7))
+# print('Площадь квадрата:', Square.square_area(7))
+# print('Площадь прямоугольника:', Square.square_rectangle(2, 6))
+# print('Количество подсчетов площади:', Square.get_count())
+
 
